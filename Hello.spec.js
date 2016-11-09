@@ -1,4 +1,4 @@
-// execute test with jasmine-node .
+// execute test with: jasmine-node .
 
 var HelloMyNameIs = require('./Hello.js');
 
