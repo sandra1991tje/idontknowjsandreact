@@ -6,3 +6,17 @@
 
 # idontknowjsandreact
 self study javascript and react.js
+
+
+# Test
+1. To install Jasmine-Node standalone on your local box:
+
+```
+npm install -g jasmine-node
+```
+
+2. run test:
+
+```
+jasmine-node .
+```
