@@ -1,3 +1,5 @@
+// execute test with jasmine-node .
+
 var thisjs = require('./this.js');
 
 describe("Hello My Name is", function() {
