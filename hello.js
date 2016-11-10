@@ -1,21 +1,15 @@
-// execute test with: jasmine-node .
+// Let's try to illustrate the motivation and utility of this:
+// https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch1.md
 
-var HelloMyNameIs = require('./hello.js');
+var HelloMyNameIs = function() {};
 
-describe("chapter 1: ", function() {
-  var slimShady = new HelloMyNameIs();
+HelloMyNameIs.prototype.identify = function(input) {
+  return this.name.toUpperCase();
+};
 
-  it('says Hello my name is Slim Shady', function() {
-    var me = {
-      name: "Slim Shady"
-    };
-    expect(slimShady.speak.call( me )).toEqual('Hello, my name is SLIM SHADY');
-  });
+HelloMyNameIs.prototype.speak = function(input) {
+  var greeting = "Hello, my name is " + HelloMyNameIs.prototype.identify.call( this );
+  return greeting;
+};
 
-  it('says Slim Shady', function() {
-    var me = {
-        name: "Slim Shady"
-    };
-    expect(slimShady.identify.call( me )).toEqual('SLIM SHADY');
-  });
-});
+module.exports = HelloMyNameIs;
