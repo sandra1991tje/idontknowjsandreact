@@ -3,12 +3,12 @@
 
 var HelloMyNameIs = function() {};
 
-HelloMyNameIs.prototype.identify = function(input) {
-  return this.name.toUpperCase();
+HelloMyNameIs.prototype.identify = function( context ) {
+  return context.name.toUpperCase();
 };
 
-HelloMyNameIs.prototype.speak = function(input) {
-  var greeting = "Hello, my name is " + HelloMyNameIs.prototype.identify.call( this );
+HelloMyNameIs.prototype.speak = function( context ) {
+  var greeting = "Hello, my name is " + HelloMyNameIs.prototype.identify( context );
   return greeting;
 };
 

@@ -10,13 +10,13 @@ describe("chapter 1: ", function() {
     var me = {
       name: "Slim Shady"
     };
-    expect(slimShady.speak.call( me )).toEqual('Hello, my name is SLIM SHADY');
+    expect(slimShady.speak( me )).toEqual('Hello, my name is SLIM SHADY');
   });
 
   it('says Slim Shady', function() {
     var me = {
         name: "Slim Shady"
     };
-    expect(slimShady.identify.call( me )).toEqual('SLIM SHADY');
+    expect(slimShady.identify( me )).toEqual('SLIM SHADY');
   });
 });
