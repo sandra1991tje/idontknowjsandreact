@@ -1,7 +1,7 @@
 // test for hello.js
 // execute test with: jasmine-node .
 
-var HelloMyNameIs = require('./hello.js');
+var HelloMyNameIs = require('./hello1.js');
 
 describe("chapter 1: ", function() {
   var slimShady = new HelloMyNameIs();
