@@ -20,3 +20,7 @@ run test:
 ```
 jasmine-node .
 ```
+
+[list of Jasmine
+matchers](https://github.com/JamieMason/Jasmine-Matchers#numbers)
+
