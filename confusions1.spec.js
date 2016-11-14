@@ -12,7 +12,7 @@ describe("chapter 1, section itself: ", function() {
      return keys;
   }
 
-  it('counts how many times foo was called', function() {
+  it("it doesn't counts how many times foo was called", function() {
     console.log(getObjectProps(confusion)); // at this stage confusion doesn't have property count
     confusion.foo.count = 0;
     var i;
