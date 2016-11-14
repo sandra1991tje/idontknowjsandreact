@@ -12,15 +12,29 @@ describe("chapter 1, section itself: ", function() {
      return keys;
   }
 
-  it("it doesn't counts how many times foo was called", function() {
-    console.log(getObjectProps(confusion)); // at this stage confusion doesn't have property count
-    confusion.foo.count = 0;
-    var i;
-    for (i=0; i<10; i++) {
-      confusion.foo(i);
+  confusion.foo.count = 0;
+
+  var failRun = function(num) {
+    for (var i=0; i<num; i++) {
+      confusion.foo(i); // it doesn't work this way
+      console.log('foo.count: ' + foo.count);
     }
-    expect(confusion.count).not.toEqual(10); // When the code executes foo.count = 0, indeed it's adding a property count to the function object foo. But for the this.count reference inside of the function, this is not in fact pointing at all to that function object, and so even though the property names are the same, the root objects are different, and confusion ensues.
-    console.log(getObjectProps(confusion)); // ["count", "foo", "bar"]
+  }
+
+  var run = function(num) {
+    for (var i=0; i<num; i++) {
+      confusion.foo.call(confusion.foo, i); // using `call` force `this` to actually point at the foo function object
+    };
+  }
+
+  it("it doesn't count how many times foo was called", function() {
+    expect(function(){ failRun(10) }).toThrow( new Error("foo is not defined") );
   });
+
+  it("it does count how many times foo was called", function() {
+    run(5);
+    expect(confusion.foo.count).toEqual(5);
+  });
+
 });
 
