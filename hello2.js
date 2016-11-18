@@ -1,7 +1,14 @@
 var HelloMyNameIs = function() {};
 
 HelloMyNameIs.prototype.speak = function( context ) {
-  return "Hello, my name is SLIM SHADY";
+  var strIn= context.split(" ");
+  var strOut = "";
+  for(i=0;i<strIn.length;i++){
+    strOut = strOut.concat(strIn[i].length+strIn[i] + " ");
+  }
+
+  
+  return strOut.toUpperCase();
 };
 
 module.exports = HelloMyNameIs;
